@@ -1,0 +1,45 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+>
+  <p class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+ 
+</ngx-spinner>
+<!-- Header Start -->
+<app-home-header></app-home-header>
+<!-- Header End -->
+
+<!-- Testimonial Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 " style="max-width: 650px;">
+            <h1>Your Testimonial is important to us, please write your Testimonial here</h1>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+            <form [formGroup]="Testemonials">
+                <div class="row g-2">
+                   
+                    <div class="col-12">
+                        <textarea formControlName="messageuser" class="form-control bg-light border-0" rows="5" placeholder="Message"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button (click)="SendTestemonial()" [disabled]="Testemonials.invalid"  class="btn btn-primary w-100 py-3"  type="submit" type="reset">Send Testimonial</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<!-- Testimonial End -->
+
+
+<!-- Footer Start -->
+
+<app-home-footer></app-home-footer>
+<!-- Footer End -->

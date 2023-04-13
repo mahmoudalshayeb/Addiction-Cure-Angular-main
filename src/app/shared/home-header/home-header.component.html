@@ -1,0 +1,48 @@
+<div class="container-fluid sticky-top bg-white shadow-sm">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <a routerLink="/Home/Main" class="navbar-brand">
+                <h1 class="m-0 text-uppercase text-primary"><i
+                        class="fa fa-clinic-medical me-2"></i>{{this.shardService.HomeById.logo}}</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <div class="navbar-nav ms-auto py-0" *ngIf="shardService.PatientById==null">
+
+                    <a routerLink="" class="nav-item nav-link">Home</a>
+                    <a routerLink="/AboutUs" class="nav-item nav-link">AboutUs</a>
+                    <a routerLink="/Doctors" class="nav-item nav-link">Doctors</a>
+                    <a routerLink="/AllCategory" class="nav-item nav-link">Category</a>
+                    <a routerLink="/ContactUs" class="nav-item nav-link">Contact</a>
+                    <a *ngIf="this.Role==null" routerLink="/Auth/SignIn" class="nav-item nav-link">Login</a>
+                    <a *ngIf="this.Role==1" routerLink="/Admin/Main" class="nav-item nav-link">Dashboard</a>
+                    
+                </div>
+
+
+
+                <div class="navbar-nav ms-auto py-0" *ngIf="shardService.PatientById!=undefined">
+
+                    <a routerLink="" class="nav-item nav-link">Home</a>
+                    <a routerLink="/AboutUs" class="nav-item nav-link">AboutUs</a>
+                    <a routerLink="/Testimonial" class="nav-item nav-link">Testimonial</a>
+                    <a routerLink="/Doctors" class="nav-item nav-link">Doctors</a>
+                    <a routerLink="/AllCategory" class="nav-item nav-link">Category</a>
+                    <a routerLink="/ContactUs" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown ">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
+                        <div class="dropdown-menu m-0">
+                            <a routerLink="/Profile2" class="nav-item nav-link">Your Profile</a>
+                            <a class="nav-item nav-link" routerLink="" (click)="Wtostar()" (click)="logout()">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+
+</div>

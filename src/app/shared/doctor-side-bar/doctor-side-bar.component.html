@@ -1,0 +1,64 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed; background-color: #007383;" >
+    <!-- Brand Logo -->
+    <a routerLink="" class="brand-link">
+        <img src="/../../../assets/DashAssets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Addicotion Cure</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="../../../assets/images/{{this.sharedService.DoctorByLoginId.imagename}}"
+                    class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a class="d-block">{{this.sharedService.DoctorByLoginId.username}}</a>
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                <li class="nav-item pad">
+                    <a routerLink="/Doctor/TreatmentRequest" class="nav-link">
+                        <i class="bi bi-newspaper"></i>
+                        <p style="font-size: medium;">
+                            Treatment Request
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item pad">
+                    <a  routerLink="/Doctor/Patient" class="nav-link">
+                        <i class="bi bi-people-fill"></i>
+                        <p style="font-size: medium;">
+                            Patients
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item pad">
+                    <a  routerLink="/Doctor/ResultTest" class="nav-link">
+                        <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                        <p style="font-size: medium;">
+                            Result
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item pad">
+                    <a  routerLink="/Doctor/SentNewTest" class="nav-link">
+                        <i class="bi bi-card-text"></i>
+                        <p style="font-size: medium;">
+                            Sent Email Test
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+

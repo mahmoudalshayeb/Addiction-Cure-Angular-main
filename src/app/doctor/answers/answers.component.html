@@ -1,0 +1,40 @@
+<div class="wrapper">
+
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <app-doctor-side-bar></app-doctor-side-bar>
+            <!-- Layout container -->
+            <div class="layout-page">
+                <app-doctor-header></app-doctor-header>
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <br>
+                        <h1 style="text-align: center;"><b style="font-size: larger;">Answers Page</b></h1>
+                        <br>
+                        <div class="card mb-4">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Question</th>
+                                        <th>Answer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of this.doctorService.answers">
+                                        <td>{{item.quastion}}</td>
+                                        <td *ngIf="item.status==0">No</td>
+                                        <td *ngIf="item.status==1">Yes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-doctor-footer></app-doctor-footer>
+</div>

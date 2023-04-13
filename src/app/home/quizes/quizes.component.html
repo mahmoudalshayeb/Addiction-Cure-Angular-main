@@ -1,0 +1,84 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+  <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+    style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- Navbar Start -->
+  <app-home-header></app-home-header>
+  <!-- Navbar End -->
+  <br>
+
+  <div class="text-center mx-auto mb-5">
+    <h1 class="d-inline-block text-primary text-uppercase border-bottom border-5">Your Doctor Test </h1>
+  </div>
+<br>
+  <div class="container">
+    <div class="head">Test</div>
+    <div *ngIf="currentQuestionIndex < patientService.QuastionsByTestNumber.length">
+      <div class="question">{{ patientService.QuastionsByTestNumber[currentQuestionIndex].quastion }} ?</div>
+      <br>
+      <div class="as" style="margin-left: 2%; margin-top: 10px;">
+        <label>
+          <input type="radio" name="answer" [value]=1 [(ngModel)]="selectedAnswer">
+          <span style="font-size: 25px;">Yes</span>
+        </label>
+        <label>
+          <input type="radio" name="answer" [value]=0 [(ngModel)]="selectedAnswer" style="margin-top: 2%;">
+          <span style="font-size: 25px;">No</span>
+        </label>
+      </div>
+      <br>
+      <div style="text-align: center;">
+
+
+
+        <button class="btn btn-success"
+          (click)="next(patientService.QuastionsByTestNumber[currentQuestionIndex].testid)">
+          Next Quastions</button>
+        <button class="btn btn-primary" routerLink="">Cancel Test</button>
+
+        <!-- 
+        <div>
+          <button class="btn btn-success"
+            (click)="next(patientService.QuastionsByTestNumber[currentQuestionIndex].testid)">
+            Next Quastions</button>
+        </div>
+        <br>
+        <div>
+          <button class="btn btn-primary" routerLink="">Cancel Test</button>
+        </div> -->
+
+
+      </div>
+    </div>
+
+
+
+    <div *ngIf="currentQuestionIndex == patientService.QuastionsByTestNumber.length" style="text-align: center;">
+      <div class="question">
+        <h2>Please Submit to Confirm Yor Test </h2>
+      </div>
+      <br>
+      <input type="button" class="btn btn-success" value="Submit" (click)="Submit()"
+        style="text-align: center; font-size: x-large;">
+    </div>
+  </div>
+
+  <!-- Footer Start -->
+  <app-home-footer></app-home-footer>
+  <!-- Footer End -->
+</body>
+
+</html>

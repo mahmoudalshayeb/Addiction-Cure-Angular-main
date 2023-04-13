@@ -1,0 +1,169 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+
+
+
+
+<div class="wrapper">
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <app-admin-side-bar></app-admin-side-bar>
+        <!-- Layout container -->
+        <div class="layout-page">
+            <app-admin-header></app-admin-header>
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <br>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">Categories Page</b></h1>
+                    <td><input type="button" value="Create Category" class="btn btn-dark" style="background-color: #007383;" (click)="OpenCreateDialog()"></td>
+                    <br>
+                    <div class="card mb-4">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of sharedservice.Category">
+                                    <td> <img class="Img" src="../../../assets/images/{{item.image}}"></td>
+                                    <td>{{item.categoryname}}</td>
+                                    <td>{{item.abouttext}}</td>
+                                    <td>
+                                        <input type="button" value="Update" class="btn btn-success" (click)="OpenUpdateDialog(item.categoryid)">
+                                        <input type="button" value="Delete" class="btn btn-danger" (click)="OpenDeleteDialog(item.categoryid)" style="margin-left: 2%;">
+                                        <input type="button" value="Details" class="btn btn-primary" (click)="OpenDetailsDialog(item.categoryid)" style="margin-left: 2%;" >
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-admin-footer></app-admin-footer>
+</div>
+
+
+<ng-template #CreateForm>
+
+    
+        <form [formGroup]="CreateCategoryForm" class="example-form">            
+    <div mat-dialog-content align="center">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Category Name</mat-label>
+                    <input type="text" matInput formControlName="categoryname">
+                    <mat-error *ngIf="CreateCategoryForm.controls['categoryname'].hasError('required')">
+                        Category Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Description</mat-label>
+                    <input type="text" matInput formControlName="abouttext">
+                    <mat-error *ngIf="CreateCategoryForm.controls['abouttext'].hasError('required')">
+                        Decription  is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <input type="file" class="form-control" id="customFile" style="width: 73%;" #File required (change)="UploadImage(File)" />
+            </div>
+    </div>
+            
+        </form>
+        <div mat-dialog-actions align="center" >
+            <input type="button" [disabled]="CreateCategoryForm.invalid" value="Create" class="btn btn-dark" (click)="CreateCategory()" mat-dialog-close>
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+        </div>
+</ng-template>
+
+
+
+<ng-template #UpdateForm>
+    <h2 mat-dialog-title align="center" >Update <a style="position: absolute; left: 95%;" mat-dialog-close=""  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+      </svg></a></h2>
+    <form [formGroup]="UpdateCategoryForm" class="example-form">
+    <div mat-dialog-content align="center">
+  
+
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Category Name</mat-label>
+                    <input type="text" matInput formControlName="categoryname">
+                    <mat-error *ngIf="UpdateCategoryForm.controls['categoryname'].hasError('required')">
+                        Category Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Description</mat-label>
+                    <input type="text" matInput formControlName="abouttext">
+                    <mat-error *ngIf="UpdateCategoryForm.controls['abouttext'].hasError('required')">
+                        Decription  is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <input type="file" class="form-control btn" id="customFile" style="width: 73%;" #File required (change)="UploadImage(File)" />
+            </div>
+        </div>
+
+            <div mat-dialog-actions align="center">          
+                <input type="button" [disabled]="UpdateCategoryForm.invalid" value="Update" class="btn btn-success" (click)="UpdateCategory()" mat-dialog-close>
+            </div>
+        </form>
+    
+
+</ng-template>
+
+
+<ng-template #DeleteForm>
+
+
+
+    <div mat-dialog-content>
+        <h2 mat-dialog-content><b>Would you like to delete this category ?</b></h2>
+        <div mat-dialog-actions>
+            <input mat-dialog-close value="Yes" type="button" class="btn btn-danger" (click)="DeleteCategory()">
+            <input type="button" mat-dialog-close="" value="Cancel" class="btn btn-dark">
+        </div>
+    </div>
+
+
+
+</ng-template>
+
+
+
+<ng-template #DetailsForm>
+
+    <h1 mat-dialog-title>Details</h1>
+    <div mat-dialog-content>Image : <img class="Img" src="../../../assets/images/{{this.sharedservice.CatById.image}}"></div>
+    <div mat-dialog-content>Name :{{this.sharedservice.CatById.categoryname}}</div>
+    <div mat-dialog-content style="width: 650px; height: 100px;">Description :{{this.sharedservice.CatById.abouttext}}</div>
+    
+
+    <div mat-dialog-actions>
+        <input type="button" mat-dialog-close="" value="Close" class="btn btn-dark">
+    </div>
+
+</ng-template>

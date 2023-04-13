@@ -1,0 +1,35 @@
+#title {
+    width: 20%;
+  }
+  #cust-table {
+    width: 100%;
+    text-align: center;
+    
+  }
+  
+  #loc-table, #user-table {
+    width: 100%;
+    text-align: center;
+  /*   display: none; */
+  }
+  
+  th {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #007383 ;
+    color: #ffffff;
+  }
+  tr {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  
+.Img{
+  margin-left: 10px;
+      width: 40;
+      height: 100px;
+      border-radius: 40px;
+ }

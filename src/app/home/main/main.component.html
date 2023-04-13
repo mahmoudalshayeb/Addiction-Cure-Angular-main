@@ -1,0 +1,216 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+        style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+
+</ngx-spinner>
+<!-- Header Start -->
+<app-home-header></app-home-header>
+<!-- Header End -->
+
+
+<!-- Hero Start -->
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-start">
+            <div class="col-lg-8 text-center text-lg-start">
+                <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5"
+                    style="border-color: rgba(256, 256, 256, .3) !important;">Welcome To Addiciton Cure</h2>
+                <h1 class="display-1 text-white mb-md-4">Best Addiciton Cure Solution In Your City</h1>
+                <div class="pt-2">
+                    <a routerLink="/Doctors" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a>
+
+
+                    <a routerLink="/Auth/SignIn" *ngIf="this.sharedService.PatientById==null" (click)="Wtostar()"
+                        class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                        Take Test
+                    </a>
+
+
+                    <span *ngIf="this.sharedService.PatientById!=null">
+
+                        <a routerLink="/Test"
+                            *ngIf="this.sharedService.PatientById.patientid!=null &&this.sharedService.PatientById.level1==null"
+                            class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                            Take Test</a>
+
+                        <a *ngIf="this.sharedService.PatientById.doctodid==null &&this.sharedService.PatientById.level1!=null"
+                            && this.sharedService.PatientById.level1!="0"
+                            class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                            Please wait doctor response </a>
+
+                        <a routerLink="/result"
+                            *ngIf="this.sharedService.PatientById.doctodid!=null &&this.sharedService.PatientById.level1!=null"
+                            class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">
+                            see your result</a>
+                    </span>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+
+
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100 rounded"
+                        src="../../../assets/images/{{this.sharedService.AboutById.image}}" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="mb-4">
+                    <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">About Us</h2>
+                    <h1 class="display-4">{{this.sharedService.AboutById.paragraph1}}</h1>
+                </div>
+                <p>{{this.sharedService.AboutById.paragraph2}}</p>
+                <br>
+                <div class="row g-3 pt-3">
+                    <div class="col-sm-3 col-6">
+                        <div class="bg-light text-center rounded-circle py-4">
+                            <i class="fa fa-3x fa-user-md text-primary mb-3"></i>
+                            <h4 class="mb-0">Qualified<small class="d-block text-primary">Doctors</small></h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-6">
+                        <div class="bg-light text-center rounded-circle py-4">
+                            <i class="fa fa-tasks fa-3x fa-procedures text-primary mb-3"></i>
+                            <h4 class="mb-0">Services<small class="d-block text-primary">Tasks</small></h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-6">
+                        <div class="bg-light text-center rounded-circle py-4">
+                            <i class="fa fa-credit-card fa-3x text-primary mb-3"></i>
+                            <h4 class="mb-0">Payment<small class="d-block text-primary">Easy Payment</small></h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-6">
+                        <div class="bg-light text-center rounded-circle py-4">
+                            <i class="fa fa-question fa-3x text-primary mb-3"></i>
+                            <h4 class="mb-0">Support<small class="d-block text-primary">Contact Us</small></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+
+<!--Contact us-->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Any Questions?</h5>
+            <h1 class="display-4">Please Feel Free To Contact Us</h1>
+        </div>
+        <div class="row justify-content-center position-relative" style="margin-top: -80px; z-index: 1;">
+            <div class="col-lg-8">
+                <div class="bg-white rounded p-5 m-5 mb-0">
+                    <form [formGroup]="CreateContactUsForm">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name"
+                                    formControlName="name" (click)="ShowAErrorMessage()" style="height: 55px;">
+                                <small *ngIf="CreateContactUsForm.controls['name'].hasError('required') && A == true">
+                                    Name is <strong>required</strong>
+                                </small>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email"
+                                    formControlName="email" (click)="ShowBErrorMessage()" style="height: 55px;">
+                                <small *ngIf="CreateContactUsForm.controls['email'].hasError('required') && B == true">
+                                    Email is <strong>required</strong>
+                                </small>
+                                <small *ngIf="CreateContactUsForm.controls['email'].hasError('email') && B == true">
+                                    Invalid <strong>Email</strong>
+                                </small>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control bg-light border-0" placeholder="Subject"
+                                    formControlName="subject" (click)="ShowCErrorMessage()" style="height: 55px;">
+                                <small
+                                    *ngIf="CreateContactUsForm.controls['subject'].hasError('required') && C == true">
+                                    Subject is <strong>required</strong>
+                                </small>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="number" class="form-control bg-light border-0" placeholder="Phone"
+                                    formControlName="phone" (click)="ShowDErrorMessage()" style="height: 55px;">
+                                <small *ngIf="CreateContactUsForm.controls['phone'].hasError('required') && D == true">
+                                    Phone is <strong>required</strong>
+                                </small>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control bg-light border-0" rows="5" formControlName="mesg"
+                                    (click)="ShowEErrorMessage()" placeholder="Message"></textarea>
+                                <small *ngIf="CreateContactUsForm.controls['mesg'].hasError('required') && E == true">
+                                    Meassage is <strong>required</strong>
+                                </small>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" [disabled]="CreateContactUsForm.invalid"
+                                    type="submit" (click)="SendContact()">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End Contact-->
+
+
+
+<!-- Team Start -->
+
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h2>
+            <h1 class="display-4">Patients Say About Our Services</h1>
+        </div>
+
+        <mdb-carousel [controls]="true" [dark]="true">
+            <mdb-carousel-item *ngFor="let item of sharedService.Testemonial">
+                <div *ngIf="item.status=='Publish'">
+                    <div class="testimonial-item text-center">
+                        <div class="position-relative mb-5">
+                            <img class="img-fluid rounded-circle mx-auto"
+                                src="../../../assets/images/{{item.imagename}}" width="150" height="80" alt="">
+                            <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
+                                style="width: 60px; height: 60px;">
+                                <i class="fa fa-quote-left fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <p class="fs-4 fw-normal">{{item.messageuser}}</p>
+                        <hr class="w-25 mx-auto">
+                        <h3>{{item.firstname}} {{item.lastname}}</h3>
+                        <!-- <h6 class="fw-normal text-primary mb-3">Profession</h6> -->
+                    </div>
+                </div>
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
+</div>
+
+<!-- Testimonial End -->
+
+<!-- Footer Start -->
+
+<app-home-footer></app-home-footer>
+<!-- Footer End -->

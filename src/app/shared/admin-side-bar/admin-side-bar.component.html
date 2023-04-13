@@ -1,0 +1,117 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed ; background-color: #007383;">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="/../../../assets/DashAssets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Addicotion Cure</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar" >
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="../../../assets/images/{{this.sharedservice.DoctorByLoginId.imagename}}" class="img-circle elevation-2"
+                    alt="User Image">
+            </div>
+            <div class="info">
+                <a class="d-block" ><b>{{this.sharedservice.DoctorByLoginId.username}}</b></a>
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <div class="stickySidebar" >
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                   with font-awesome or any other icon font library -->
+
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/Main" class="nav-link">
+                            <i class="bi bi-speedometer2"></i>
+                            <p style="font-size: medium;">
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/Report" class="nav-link">
+                            <i class="bi bi-newspaper"></i>
+                            <p style="font-size: medium;">
+                                Report
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/AllDoctors" class="nav-link">
+                            <i class="bi bi-people-fill"></i>
+                            <p style="font-size: medium;">
+                                All Doctors
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/AllPatient" class="nav-link">
+                            <i class="bi bi-people-fill"></i>
+                            <p style="font-size: medium;">
+                                All Patients
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/Questions" class="nav-link">
+                            <i class="bi bi-question-circle-fill"></i>
+                            <p style="font-size: medium;">
+                                Questions 
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/Testimonial" class="nav-link">
+                            <i class="bi bi-flag"></i>
+                            <p style="font-size: medium;">
+                                Testimonial
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/Category" class="nav-link">
+                            <i class="bi bi-bookmark-plus"></i>
+                            <p style="font-size: medium;">
+                                Category
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/AboutUs" class="nav-link">
+                            <i class="bi bi-info-circle"></i>
+                            <p style="font-size: medium;">
+                                About Us
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/Home" class="nav-link">
+                            <i class="bi bi-house-fill"></i>
+                            <p style="font-size: medium;">
+                                Home
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item pad">
+                        <a routerLink="/Admin/ContactUs" class="nav-link">
+                            <i class="bi bi-chat-dots"></i>
+                            <p style="font-size: medium;">
+                                Contact Us
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,74 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+>
+  <p class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+ 
+</ngx-spinner>
+
+<!-- Navbar Start -->
+<app-home-header></app-home-header>
+<!-- Navbar End -->
+
+
+<!-- Doctors starts -->
+
+ <!-- Search Start -->
+ <div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5">Find A Doctor</h2>
+            
+        </div>
+        <div class="mx-auto" style="width: 100%; max-width: 600px;">
+            <div class="input-group">
+                <input [formControl]="name" type="text" class="form-control border-primary w-50" placeholder="Doctor name" >
+                <button class="btn btn-dark border-0 w-25" (click)="SearchDoctor()">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search End -->
+
+
+<!-- Search Result Start -->
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s"  *ngFor="let item of adminService.Doctors">
+                    <div class="team-item">
+                        <div class="position-relative rounded-top" style="z-index: 1;">
+                            <img class="img-rounded" width="339" height="300" src="../../../assets/images/{{this.item.imagename}}" alt="image">
+                            <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
+                            <h4 class="mb-2">Dr. {{this.item.firstname}} {{this.item.lastname}}</h4>
+                            <p class="text-primary mb-0">Level, {{this.item.level1}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    
+<!-- Search Result End -->
+
+<!-- Doctors End -->
+
+
+<!-- Footer Start -->
+<app-home-footer></app-home-footer>
+<!-- Footer End -->
+
+
+   

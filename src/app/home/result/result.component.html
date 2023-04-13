@@ -1,0 +1,70 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p class="d-inline-block text-primary text-uppercase border-bottom border-5"
+      style="border-color: rgba(256, 256, 256, .3) !important;">Addiciton Cure</p>
+  
+  </ngx-spinner>
+
+    <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <!-- Layout container -->
+      <div class="layout-page">
+        <app-home-header></app-home-header>
+        <!-- Content wrapper -->
+        <br>
+        <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <br>
+                    <h1 style="text-align: center;"><b style="font-size: larger;">Treatment Periods and Result</b></h1>
+                    <br>
+                    <div class="card mb-4">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Patient name</th>
+                                    <th>Description</th>
+                                    <th>Level</th>
+                                    <th>Test Date</th>
+                                    <th>Period</th>
+                                    <th>Test result</th>
+                                    <th>Test number</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of patientService.ResultByPatid" >
+                                    <td>{{item.firstname}} {{item.lastname}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>{{item.level1}}</td>
+                                    <td>{{item.datetest}}</td>
+                                    <td>{{item.perioddate}}</td>
+                                    <td>{{item.resulttest}}</td>
+                                    <td>{{item.numberoftest}}</td>
+                                    
+                                    <td *ngIf="item.description=='null'">
+                                        <input type="button" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="Take Tast" class="btn btn-success">
+                                    </td>
+                                    <td *ngIf="item.description=='Pending'">
+                                        <input type="button" disabled="true" (click)="numberOfTest(item.numberoftest ,item.resulttestid)" value="On hold" class="btn btn-success">
+                                    </td>
+                                    <td *ngIf="item.description!='Pending' && item.description!='null'">
+                                        <input type="button"  (click)="answer(item.numberoftest,item.patientid)" value="See your answers" class="btn btn-success">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+<!-- Footer Start -->
+<app-home-footer class="fixed-bottom" ></app-home-footer>
+
+<!-- Footer End -->
+ 
+
